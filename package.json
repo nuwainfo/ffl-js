@@ -1,0 +1,31 @@
+{
+  "name": "ffl-js",
+  "version": "0.1.1",
+  "description": "Node.js binding for FastFileLink, backed by the portable ffl.com APE",
+  "type": "module",
+  "main": "./src/ffl/index.js",
+  "types": "./src/ffl/index.d.ts",
+  "files": [
+    "src/ffl",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test tests/unit/*.test.js",
+    "test:types": "tsc --project tsconfig.types.json",
+    "test:real": "node --test --test-concurrency=1 tests/real/*.test.js",
+    "test:packaging": "node --test tests/packaging/*.test.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./src/ffl/index.d.ts",
+      "import": "./src/ffl/index.js"
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.2",
+    "typescript": "^7.0.2"
+  }
+}
