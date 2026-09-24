@@ -14,6 +14,21 @@ FFL-specific library semantics remain explicit and reviewable.
 
 There are no runtime npm dependencies.
 
+## CLI
+
+The package also exposes the bundled FFL command-line program. Run it without a
+project installation:
+
+```bash
+npx ffl-js --version
+```
+
+After `npm install ffl-js`, run the same APE with:
+
+```bash
+ffl --version
+```
+
 ## Usage
 
 ```js

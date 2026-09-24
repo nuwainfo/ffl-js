@@ -77,6 +77,13 @@ test('npm pack installs into a clean project and runs bundled ffl.com', async ()
 
   assert.match(executed.stdout, /FastFileLink/);
 
+  const commandLine = await runNpm(
+    ['exec', '--', 'ffl', '--version'],
+    { cwd: consumerDirectory },
+  );
+
+  assert.match(commandLine.stdout, /FastFileLink/);
+
   const installedPackage = JSON.parse(
     await readFile(join(consumerDirectory, 'node_modules', 'ffl-js', 'package.json')),
   );
