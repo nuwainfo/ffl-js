@@ -23,10 +23,10 @@ project installation:
 npx @nuwainfo/ffl-js --version
 ```
 
-After `npm install @nuwainfo/ffl-js`, run the same APE with:
+After `npm install @nuwainfo/ffl-js`, run the project-local command with:
 
 ```bash
-ffl --version
+npx --no-install ffl-js --version
 ```
 
 ## Usage
