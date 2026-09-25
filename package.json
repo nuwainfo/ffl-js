@@ -1,5 +1,5 @@
 {
-  "name": "ffl-js",
+  "name": "@nuwainfo/ffl-js",
   "version": "0.1.1",
   "description": "Node.js binding for FastFileLink, backed by the portable ffl.com APE",
   "license": "Apache-2.0",
@@ -8,6 +8,9 @@
   "types": "./src/ffl/index.d.ts",
   "bin": {
     "ffl": "./src/ffl/cli.js"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "files": [
     "src/ffl",

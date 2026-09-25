@@ -70,7 +70,7 @@ test('npm pack installs into a clean project and runs bundled ffl.com', async ()
 
   await writeFile(
     join(consumerDirectory, 'test.mjs'),
-    "import { version } from 'ffl-js'; console.log(await version());\n",
+    "import { version } from '@nuwainfo/ffl-js'; console.log(await version());\n",
   );
 
   const executed = await execFileAsync('node', ['test.mjs'], { cwd: consumerDirectory });
@@ -85,13 +85,13 @@ test('npm pack installs into a clean project and runs bundled ffl.com', async ()
   assert.match(commandLine.stdout, /FastFileLink/);
 
   const installedPackage = JSON.parse(
-    await readFile(join(consumerDirectory, 'node_modules', 'ffl-js', 'package.json')),
+    await readFile(join(consumerDirectory, 'node_modules', '@nuwainfo', 'ffl-js', 'package.json')),
   );
 
   assert.equal(installedPackage.dependencies, undefined);
   if (process.platform !== 'win32') {
     const binary = await stat(
-      join(consumerDirectory, 'node_modules', 'ffl-js', 'src', 'ffl', 'bin', 'ffl.com'),
+      join(consumerDirectory, 'node_modules', '@nuwainfo', 'ffl-js', 'src', 'ffl', 'bin', 'ffl.com'),
     );
     assert.notEqual(binary.mode & 0o111, 0);
   }

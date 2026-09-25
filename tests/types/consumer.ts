@@ -21,7 +21,7 @@ import {
   shareStream,
   type DownloadOptions,
   type DownloadStreamOptions,
-} from 'ffl-js';
+} from '@nuwainfo/ffl-js';
 import { Readable } from 'node:stream';
 
 async function useFFL(): Promise<void> {

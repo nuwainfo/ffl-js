@@ -1,4 +1,4 @@
-# ffl-js
+# @nuwainfo/ffl-js
 
 Dependency-free Node.js binding for [FastFileLink](https://github.com/nuwainfo/ffl). 
 The npm package bundles the portable `ffl.com` APE, so callers do not need a separate FFL installation or Python runtime.
@@ -20,10 +20,10 @@ The package also exposes the bundled FFL command-line program. Run it without a
 project installation:
 
 ```bash
-npx ffl-js --version
+npx @nuwainfo/ffl-js --version
 ```
 
-After `npm install ffl-js`, run the same APE with:
+After `npm install @nuwainfo/ffl-js`, run the same APE with:
 
 ```bash
 ffl --version
@@ -32,7 +32,7 @@ ffl --version
 ## Usage
 
 ```js
-import { share } from 'ffl-js';
+import { share } from '@nuwainfo/ffl-js';
 
 const session = await share('release.zip', {
   maxDownloads: 1,
@@ -54,7 +54,7 @@ const session = await share(['one.txt', 'two.txt'], {
 Text and bytes helpers own their temporary source until the share session closes:
 
 ```js
-import { shareText } from 'ffl-js';
+import { shareText } from '@nuwainfo/ffl-js';
 
 const session = await shareText('hello', { name: 'hello.txt' });
 console.log(session.link);
@@ -72,7 +72,7 @@ temporary file:
 
 ```js
 import { createReadStream } from 'node:fs';
-import { shareStream } from 'ffl-js';
+import { shareStream } from '@nuwainfo/ffl-js';
 
 const session = await shareStream(createReadStream('database.sql'), {
   name: 'database.sql',
@@ -90,7 +90,7 @@ process ends, even if the caller does not explicitly close the session.
 ## Download
 
 ```js
-import { download } from 'ffl-js';
+import { download } from '@nuwainfo/ffl-js';
 
 const result = await download('https://example.fastfilelink/...', {
   outputPath: 'download.bin',
@@ -106,7 +106,7 @@ mode and output path information.
 For cancellation or binary streaming, use a download session:
 
 ```js
-import { downloadStream, startDownload } from 'ffl-js';
+import { downloadStream, startDownload } from '@nuwainfo/ffl-js';
 
 const controller = new AbortController();
 const transfer = await startDownload('https://example.fastfilelink/...', {
@@ -159,7 +159,7 @@ sudo sh -c 'echo -1 > /proc/sys/fs/binfmt_misc/WSLInterop'
 ## Key generation
 
 ```js
-import { keygen } from 'ffl-js';
+import { keygen } from '@nuwainfo/ffl-js';
 
 const result = await keygen('alice');
 console.log(result.publicKeyPath);
@@ -169,7 +169,7 @@ console.log(result.privateKeyPath);
 ## Version and raw access
 
 ```js
-import { raw, version } from 'ffl-js';
+import { raw, version } from '@nuwainfo/ffl-js';
 
 console.log(await version());
 const result = await raw(['download', '--help']);
